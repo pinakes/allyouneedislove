@@ -19,13 +19,16 @@ h1.maintitle {
 }
 
 /* HEADER */
-.container.title {
+.container-fluid.title {
 	border-bottom: 2px solid #666;
 }
-.container.content {
-	margin-top: 212px;
+.container-fluid.content {
+	max-width: 933px;
+	margin: 212px auto 0 auto;
 }
 .navbar-fixed-top {
+	max-width: 970px;
+	margin: 0 auto;
 	background: #FFF;
 }
 
