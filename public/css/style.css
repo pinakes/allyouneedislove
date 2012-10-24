@@ -10,8 +10,10 @@
 
 /* TITOLI */
 
-h1.maintitle {
+h1, h2, h3, h4 {
 	font-family: 'AvantGardePro-Demi';
+}
+h1.maintitle {
 	text-transform: uppercase;
 	font-size: 65pt;
 	font-weight: normal;
@@ -34,11 +36,22 @@ h1.maintitle {
 
 .row-fluid.ascolta, .row-fluid.scarica, 
 .row-fluid.carica, .row-fluid.ascolta-tutti {
-	margin: 40px 0;
+	margin: 20px 0;
 }
 
 .audiojs {
-	margin-bottom: 60px;
+	margin-bottom: 20px;
 }
-
+.span6.left {
+	padding-right: 22px;
+}
+.row-fluid.ascolta, .row-fluid.scarica, .row-fluid.carica {
+	padding-bottom: 24px;
+	border-bottom: 1px solid #ccc;
+}
+#readResult {
+	margin-top: 22px;
+font-weight: bold;
+color: #0680F0;
+}
 /* entropia continua */
