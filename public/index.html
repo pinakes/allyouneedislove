@@ -5,15 +5,11 @@
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
-	<script src="https://api.filepicker.io/v0/filepicker.js"></script>
+	<link href="css/bootstrap-responsive.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="all" href="css/style.css" />
-	<script type="text/javascript">
-	    //Seting up Filepicker.io with your api key
-	    filepicker.setKey('Aiz0fa3BjQ9y9mmU79oRDz');
-	</script>
 </header>
 <body>
+    
 	<!--<input type="filepicker-dragdrop"/>-->
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -41,14 +37,102 @@
     	</div>
     </div>
     <div class="container-fluid content">
-    	<div class="row-fluid">
+
+        <!-- ASCOLTA -->
+    	<div class="row-fluid ascolta">
     		<div class="span6">
-                <iframe width="100%" height="253" src="http://www.youtube.com/embed/qDvSXVusxI0" frameborder="0" allowfullscreen></iframe>
+                <h2>Ascolta il Brano</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+                <!--<iframe width="100%" height="253" src="http://www.youtube.com/embed/qDvSXVusxI0" frameborder="0" allowfullscreen></iframe>-->
             </div>
-			
-			<div class="span3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-			<div class="span3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+            <div class="span3">
+                <audio src="http://s3.amazonaws.com/audiojs/02-juicy-r.mp3" preload="auto"></audio>
+            </div>
+			<div class="span3"></div>
     	</div>
+
+        <!-- SCARICA -->
+        <div class="row-fluid scarica">
+            <div class="span6">
+                <h2>Scarica il brano</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+                <!--<iframe width="100%" height="253" src="http://www.youtube.com/embed/qDvSXVusxI0" frameborder="0" allowfullscreen></iframe>-->
+            </div>
+            <div class="span3">
+                <button id="uploader" style="margin-top: 35px" class="btn btn-primary" data-name="complex get">Scarica</button>
+            </div>
+            <div class="span3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </div>
+        </div>
+
+        <!-- CARICA -->
+        <div class="row-fluid carica">
+            <div class="span6">
+                <h2>Carica la tua Versione</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+                <!--<iframe width="100%" height="253" src="http://www.youtube.com/embed/qDvSXVusxI0" frameborder="0" allowfullscreen></iframe>-->
+            </div>
+            
+            <div class="span3">
+                <button id="uploader" style="margin-top: 35px" class="btn btn-primary" data-name="complex get">Carica</button>
+            </div>
+            <div class="span3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+        </div>
+
+        <!-- ASCOLTA TUTTI -->
+        <div class="row-fluid ascolta-tutti">
+            <div class="span6">
+                <h2>Ascolta Tutte le versioni</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+                <!--<iframe width="100%" height="253" src="http://www.youtube.com/embed/qDvSXVusxI0" frameborder="0" allowfullscreen></iframe>-->
+            </div>
+            
+            <div class="span3">
+                <audio src="http://s3.amazonaws.com/audiojs/02-juicy-r.mp3" preload="auto"></audio>
+                <audio src="http://s3.amazonaws.com/audiojs/02-juicy-r.mp3" preload="auto"></audio>
+                <audio src="http://s3.amazonaws.com/audiojs/02-juicy-r.mp3" preload="auto"></audio>
+                <audio src="http://s3.amazonaws.com/audiojs/02-juicy-r.mp3" preload="auto"></audio>
+                <audio src="http://s3.amazonaws.com/audiojs/02-juicy-r.mp3" preload="auto"></audio>
+            </div>
+            <div class="span3"></div>
+        </div>
+
     </div>
+    <!--<audio src="http://s3.amazonaws.com/audiojs/02-juicy-r.mp3" preload="auto"></audio>-->
+    <div id="songs"></div>
+    <script src="audiojs/audio.js"></script>
+    <script>
+      audiojs.events.ready(function() {
+        var as = audiojs.createAll();
+      });
+    </script>
+    <script src="https://api.filepicker.io/v0/filepicker.js"></script>
+    <script type="text/javascript">
+        //Seting up Filepicker.io with your api key
+        filepicker.setKey('Aiz0fa3BjQ9y9mmU79oRDz');
+
+        $(document).ready(function(){
+            $.get('/songs', function(data) {
+                console.log(data);
+                data.forEach(function(i) {
+                    $('#songs').append('<audio src="' + i + '" preload="auto"></audio>');
+                })
+            });
+
+           $('#uploader').click(function() {
+                filepicker.getFile(['audio/mp3', 'audio/mpeg'], {"modal":true, "multiple":false}, function(url, data){
+                    $.post('/write?name=' + encodeURI(url), function(data) {
+                        console.log(data);
+                    });
+                });
+            }); 
+       });
+        
+    </script>
 </body>
+
+
 </html>

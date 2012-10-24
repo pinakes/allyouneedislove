@@ -3,7 +3,7 @@
 @font-face {
 	font-family: 'AvantGardePro-Demi';
 	src: url('../fonts/ITCAvantGardePro-Demi.eot');
-	src: local('☺'), url('../fonts/ITCAvantGardePro-Demi.woff') format('woff'), url('../fonts/ITCAvantGardePro-Demi.ttf') format('truetype'), url('../fonts/ITCAvantGardePro-Demi.svg') format('svg');
+	src: local('☺'), url('../fonts/ITCAvantGardePro-Demi.ttf') format('truetype'), url('../fonts/ITCAvantGardePro-Demi.svg') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -30,6 +30,15 @@ h1.maintitle {
 	max-width: 970px;
 	margin: 0 auto;
 	background: #FFF;
+}
+
+.row-fluid.ascolta, .row-fluid.scarica, 
+.row-fluid.carica, .row-fluid.ascolta-tutti {
+	margin: 40px 0;
+}
+
+.audiojs {
+	margin-bottom: 60px;
 }
 
 /* entropia continua */
