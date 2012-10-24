@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <header>
-	<title>Bootstrap 101 Template</title>
+	<title>All You Need is Love</title>
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,30 +40,38 @@
 
         <!-- ASCOLTA -->
     	<div class="row-fluid ascolta">
-    		<div class="span6">
-                <h2>Ascolta il Brano</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </p>
+    		<div class="span6 left">
+                <h2>Rivoltella</h2>
+                <img src="img/rivoltella_cover.png" align="left" width="30%" style="margin:0 12px 12px 0"/>
                 <!--<iframe width="100%" height="253" src="http://www.youtube.com/embed/qDvSXVusxI0" frameborder="0" allowfullscreen></iframe>-->
+                <p>L'ultimo album di Fabio Koryu Calabrò dedicato ai Beatles e in particolare a Revolver, preodotto come sempre dalla vetrocipolla.
+                </p>
+                <p>Anche questa volta l'album è stato composto esclusivamente per ukulele e voce, i testi sono in itlaliano.
+                </p>
             </div>
-            <div class="span3">
-                <audio src="http://s3.amazonaws.com/audiojs/02-juicy-r.mp3" preload="auto"></audio>
+            
+            <div class="span6">
+                <h2>Ascolta il Brano</h2>
+                <audio src="mp3/se-amore.mp3" preload="auto"></audio>
+                <h4>Se l'amore c'è</h4>
+                <p>Questaè la bonus track del disco.
+                Abbiamo deciso di metterla a disposizione.
+                Ognuno potrà scaricarla e registraci sopra la propria parte o rimaneggiarla come crede.
+                </p>
             </div>
-			<div class="span3"></div>
     	</div>
 
         <!-- SCARICA -->
         <div class="row-fluid scarica">
-            <div class="span6">
+            <div class="span8">
                 <h2>Scarica il brano</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                <p>Clicca il pulsante qui a fianco, potrai scaricare il brano
                 </p>
-                <!--<iframe width="100%" height="253" src="http://www.youtube.com/embed/qDvSXVusxI0" frameborder="0" allowfullscreen></iframe>-->
+                
             </div>
-            <div class="span3">
-                <button id="uploader" style="margin-top: 35px" class="btn btn-primary" data-name="complex get">Scarica</button>
+            <div class="span2">
+                <a href="mp3/se-lamore.mp3.zip" style="margin-top: 35px" class="btn btn-primary btn-large" data-name="complex get"><i class="icon-download icon-white"></i> Scarica</a>
             </div>
-            <div class="span3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </div>
         </div>
 
         <!-- CARICA -->
@@ -74,20 +82,22 @@
                 </p>
                 <!--<iframe width="100%" height="253" src="http://www.youtube.com/embed/qDvSXVusxI0" frameborder="0" allowfullscreen></iframe>-->
             </div>
-            
-            <div class="span3">
-                <button id="uploader" style="margin-top: 35px" class="btn btn-primary" data-name="complex get">Carica</button>
+            <div class="span2"></div>
+            <div class="span2">
+                <button id="uploader" style="margin-top: 35px" class="btn btn-primary btn-large" data-name="complex get"><i class="icon-upload icon-white"></i> Carica</button>
             </div>
-            <div class="span3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+            <div class="span2">
+                <p id="readResult"></p>
+            </div>
         </div>
 
         <!-- ASCOLTA TUTTI -->
+        <!--
         <div class="row-fluid ascolta-tutti">
             <div class="span6">
                 <h2>Ascolta Tutte le versioni</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 </p>
-                <!--<iframe width="100%" height="253" src="http://www.youtube.com/embed/qDvSXVusxI0" frameborder="0" allowfullscreen></iframe>-->
             </div>
             
             <div class="span3">
@@ -99,7 +109,7 @@
             </div>
             <div class="span3"></div>
         </div>
-
+        -->
     </div>
     <!--<audio src="http://s3.amazonaws.com/audiojs/02-juicy-r.mp3" preload="auto"></audio>-->
     <div id="songs"></div>
@@ -126,6 +136,7 @@
                 filepicker.getFile(['audio/mp3', 'audio/mpeg'], {"modal":true, "multiple":false}, function(url, data){
                     $.post('/write?name=' + encodeURI(url), function(data) {
                         console.log(data);
+                    $('#readResult').text('Il tuo file è stato caricato con successo');
                     });
                 });
             }); 
