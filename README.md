@@ -1,7 +1,14 @@
 # All You Need Is Love
 
-## Start server
+## Start redis server
 
 ```bash
-REDISTOGO_URL=redis://localhost:6379 rackup
+$ redis-server
+```
+
+
+## Start web server
+
+```bash
+$ REDISTOGO_URL=redis://localhost:6379 rackup
 ```
